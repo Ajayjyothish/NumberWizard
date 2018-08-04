@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class NumberWizard : MonoBehaviour
 {
-    int min = 1;
-    int max = 100;
+    int min ;
+    int max ;
     int guess;
     // Use this for initialization
     void Start()
     {
-
-
-        Debug.Log("Welcome to number wizard");
-        Debug.Log("Enter a number between 1 and 100");
+        start_message();
     }
 
+    void start_message()
+    {
+        min = 1;
+        max = 100;
+        guess = 50;
+
+        Debug.Log("Welcome to number wizard");
+        Debug.Log("Think of a number between 1 and 100");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -37,8 +43,13 @@ public class NumberWizard : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("You have won the game and you are dope");
+            print("do you want to play again");
+            
+                Start();
+           
 
 
+            
         }
 
     }
