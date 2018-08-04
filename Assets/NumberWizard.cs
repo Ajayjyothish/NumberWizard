@@ -36,7 +36,7 @@ public class NumberWizard : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("You have won the game");
+            Debug.Log("You have won the game and you are dope");
 
 
         }
