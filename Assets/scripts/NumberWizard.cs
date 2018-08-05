@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random=UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class NumberWizard : MonoBehaviour
 {
@@ -10,21 +12,26 @@ public class NumberWizard : MonoBehaviour
     [SerializeField] int max;
     [SerializeField] Text text;
     int guess;
+    [SerializeField] int numberoOfGuess;
 
-    
+    SceneLoader scene;
+
     // Use this for initialization
     void Start()
     {
-        guess = (min + max) / 2;
-        text.text = guess.ToString();
-       
+        getGuess();
+        max = max + 1;
+        numberoOfGuess+=1;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-       
+        if (numberoOfGuess == 0)
+        {
+            SceneManager.LoadScene("lose_game");
+        }
 
         
 
@@ -32,22 +39,25 @@ public class NumberWizard : MonoBehaviour
 
     public void onPressLower()
     {
-        max = guess;
+        max = guess-1;
         getGuess();
-        text.text = guess.ToString();
+        numberoOfGuess--;
+        
         
     }
 
     public void onPressHigher()
     {
-        min = guess;
+        min = guess+1;
         getGuess();
-        text.text = guess.ToString();
+        numberoOfGuess--;
+        
     }
 
     public int getGuess()
     {
-        guess = (min + max) / 2;
+        guess = Random.Range(min, max+1);
+        text.text = guess.ToString();
         return guess;
     }
 }
