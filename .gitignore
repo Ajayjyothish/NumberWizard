@@ -1324,3 +1324,17 @@ Temp/UnityTempFile-0293a076335a08c46a4239467298cc90
 =======
 >>>>>>> origin/master
 Temp/
+*.unity
+*.meta
+*.info
+*.pdf
+*.mat
+*.asset
+*.txt
+*.shader
+*.cginc
+*.json
+*.png
+*.bin
+
+Library/metadata/*
